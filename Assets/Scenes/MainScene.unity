@@ -17174,6 +17174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2147159351}
+  smoothSpeed: 5
+  minBounds: {x: -30, y: -30}
+  maxBounds: {x: 30, y: 30}
 --- !u!1 &2147159350
 GameObject:
   m_ObjectHideFlags: 0
@@ -17185,8 +17188,8 @@ GameObject:
   - component: {fileID: 2147159351}
   - component: {fileID: 2147159352}
   - component: {fileID: 2147159353}
-  - component: {fileID: 2147159354}
   - component: {fileID: 2147159355}
+  - component: {fileID: 2147159354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged

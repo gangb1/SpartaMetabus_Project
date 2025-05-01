@@ -5,6 +5,11 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform target;
+    public float smoothSpeed = 5f;
+    public Vector2 minBounds;
+    public Vector2 maxBounds;
+
+    private Vector3 offset;
 
 
     // Start is called before the first frame update
@@ -14,20 +19,24 @@ public class FollowCamera : MonoBehaviour
         {
             return;
         }
+        offset = transform.position - target.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if(target == null)
-        {
-            return;
-        }
+        Vector3 desiredPosition = target.position + offset;
+        desiredPosition.z = transform.position.z;
 
-        Vector3 pos = transform.position;
-        pos.x = target.position.x;
-        pos.y = target.position.y;
-        transform.position = pos;
+        desiredPosition.x = Mathf.Clamp(desiredPosition.x, minBounds.x, maxBounds.x);
+        desiredPosition.y = Mathf.Clamp(desiredPosition.y, minBounds.y, maxBounds.y);
+
+
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime*smoothSpeed);
+        //Vector3 pos = transform.position;
+        //pos.x = target.position.x;
+        //pos.y = target.position.y;
+        //transform.position = pos;
 
 
     }

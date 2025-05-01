@@ -49,7 +49,7 @@ public class BaseController : MonoBehaviour
 
     private void MoveMent(Vector2 direction)
     {
-        direction = direction * 3f;                     //이동속도 기본 값              
+        direction = direction * 8f;                     //이동속도 기본 값              
 
 
         _rigidbody.velocity = direction;        //방향 벡터 적용
