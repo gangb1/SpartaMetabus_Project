@@ -16,12 +16,12 @@ public class BaseController : MonoBehaviour
     protected Vector2 lookDirection = Vector2.zero;                                     //마우스를 바라보는 방향
     public Vector2 LookDirection { get { return lookDirection; } }                      //public 프로퍼티 제공(다른 클래스에서 방향값을 읽어 올 수 있도록)
 
-    //protected AnimationHandler animationhendler;
+    protected AnimationHandler animationhendler;
 
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();                   //한번 찾아오고 _rigidbody 변수에 저장(나중에 다른 곳에서 빠르게 접근하기 위해)
-        //animationhendler = GetComponent<AnimationHandler>();
+       animationhendler = GetComponent<AnimationHandler>();
     }
     protected virtual void Start()
     {
@@ -53,7 +53,7 @@ public class BaseController : MonoBehaviour
 
 
         _rigidbody.velocity = direction;        //방향 벡터 적용
-        //animationhendler.Move(direction);
+        animationhendler.Move(direction);
     }
 
     private void Rotate(Vector2 direction)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform target;
-    float offsetX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,6 @@ public class FollowCamera : MonoBehaviour
         {
             return;
         }
-        offsetX = transform.position.x - target.position.x;
     }
 
     // Update is called once per frame
@@ -26,7 +25,8 @@ public class FollowCamera : MonoBehaviour
         }
 
         Vector3 pos = transform.position;
-        pos.x = target.position.x + offsetX;
+        pos.x = target.position.x;
+        pos.y = target.position.y;
         transform.position = pos;
 
 
