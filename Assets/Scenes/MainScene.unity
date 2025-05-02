@@ -22533,6 +22533,7 @@ GameObject:
   - component: {fileID: 1975081321}
   - component: {fileID: 1975081320}
   - component: {fileID: 1975081322}
+  - component: {fileID: 1975081324}
   - component: {fileID: 1975081323}
   m_Layer: 0
   m_Name: MiniGameGate
@@ -22644,6 +22645,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1975081324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975081319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1e0f53da8db054393a4edcfebb051a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2047154378
 GameObject:
   m_ObjectHideFlags: 0
@@ -22749,7 +22762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178eff27b0909974e8720b0f9be6a692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2147159351}
+  player: {fileID: 2147159351}
   smoothSpeed: 5
   minBounds: {x: -50, y: -40}
   maxBounds: {x: 50, y: 40}

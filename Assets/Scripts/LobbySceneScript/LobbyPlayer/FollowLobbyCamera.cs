@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowCamera : MonoBehaviour
+public class FollowLobbyCamera : MonoBehaviour
 {
-    public Transform target;
+    public Transform player;
     public float smoothSpeed = 5f;
     public Vector2 minBounds;
     public Vector2 maxBounds;
@@ -15,17 +15,17 @@ public class FollowCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(target == null)
+        if(player == null)
         {
             return;
         }
-        offset = transform.position - target.position;
+        offset = transform.position - player.position;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 desiredPosition = target.position + offset;
+        Vector3 desiredPosition = player.position + offset;
         desiredPosition.z = transform.position.z;
 
         desiredPosition.x = Mathf.Clamp(desiredPosition.x, minBounds.x, maxBounds.x);
