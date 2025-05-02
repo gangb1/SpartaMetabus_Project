@@ -17,11 +17,13 @@ public class BaseController : MonoBehaviour
     public Vector2 LookDirection { get { return lookDirection; } }                      //public 프로퍼티 제공(다른 클래스에서 방향값을 읽어 올 수 있도록)
 
     protected AnimationHandler animationhendler;
+    protected LobbyStatController lobbyStatController;
 
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();                   //한번 찾아오고 _rigidbody 변수에 저장(나중에 다른 곳에서 빠르게 접근하기 위해)
        animationhendler = GetComponent<AnimationHandler>();
+        lobbyStatController = GetComponent<LobbyStatController>();
     }
     protected virtual void Start()
     {
@@ -49,7 +51,7 @@ public class BaseController : MonoBehaviour
 
     private void MoveMent(Vector2 direction)
     {
-        direction = direction * 8f;                     //이동속도 기본 값              
+        direction = direction * lobbyStatController.Speed;                     //이동속도 기본 값              
 
 
         _rigidbody.velocity = direction;        //방향 벡터 적용
