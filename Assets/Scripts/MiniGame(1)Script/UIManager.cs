@@ -7,24 +7,32 @@ using UnityEngine.SocialPlatforms.Impl;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreTxt;
-    public TextMeshProUGUI restartTxt;
+    [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private TextMeshProUGUI resultScore;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (restartTxt == null)
+        if (GameOverPanel == null)
             Debug.Log("restart text is null");
         if (scoreTxt == null)
             Debug.Log("score text is null");
 
-        restartTxt.gameObject.SetActive(false);
+        GameOverPanel.gameObject.SetActive(false);
     }
     public void SetRestart()
     {
-        restartTxt.gameObject.SetActive(true);
+        GameOverPanel.gameObject.SetActive(true);
+        scoreTxt.gameObject.SetActive(false);
 
     }
     public void UpdateScore(int score)
     {
         scoreTxt.text = score.ToString();
+    }
+
+    public void ResultScore()
+    {
+        resultScore.text = scoreTxt.text;
     }
 }

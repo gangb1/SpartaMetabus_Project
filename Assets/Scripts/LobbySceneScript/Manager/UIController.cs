@@ -18,6 +18,9 @@ public class UIController : MonoBehaviour
 
     public void HideText()
     {
-        interactionPanel.SetActive(false);
+        if (interactionText != null && interactionText.gameObject != null)
+        {
+            interactionPanel.SetActive(false);
+        }
     }
 }
