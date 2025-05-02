@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class DoorTrigger : MonoBehaviour
+public class InteractionTrigger : MonoBehaviour
 {
-    [SerializeField] private Door door;
     [SerializeField] private float interactDistance = 1.5f;
     [SerializeField] private string message = "Press [E]";
+
+    [SerializeField] private UnityEvent onInteract;
 
     private Transform player;
     private bool playerInRange = false;
@@ -25,7 +27,7 @@ public class DoorTrigger : MonoBehaviour
             float distance = Vector2.Distance(transform.position, player.position);
             if(distance <= interactDistance)
             {
-                door.ToggleDoor();
+                onInteract.Invoke();
                 ui.HideText();
             }
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     private static readonly int IsMoving = Animator.StringToHash("IsMove");
+    private static readonly int IsPush = Animator.StringToHash("IsPush");
 
     protected Animator animator;
 

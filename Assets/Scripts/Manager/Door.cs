@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Door : MonoBehaviour
 {
     [SerializeField] private Sprite openDoorSprite;
@@ -24,6 +25,11 @@ public class Door : MonoBehaviour
         SetDoorState(isOpen);
     }
 
+    public void Interact()
+    {
+        ToggleDoor();
+    }
+
     public void ToggleDoor()
     {
         isOpen = !isOpen;
@@ -35,4 +41,5 @@ public class Door : MonoBehaviour
         boxCollider.enabled = !open;
         spriteRenderer.sprite = open ? openDoorSprite: closeDoorSprite;
     }
+
 }
