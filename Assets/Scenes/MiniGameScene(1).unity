@@ -3088,7 +3088,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 134956632}
   GameOverPanel: {fileID: 472740897}
   resultScore: {fileID: 262426742}
-  BestScore: {fileID: 117228835}
+  BestScoreTxt: {fileID: 117228835}
 --- !u!1 &1134364762
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button startButton;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button LobbyButton;
-
+    public static bool isFirstLoading = true;
 
     private int currentScore = 0;
     UIManager uimanager;
@@ -26,20 +26,36 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        uimanager.UpdateScore(0);
-        uimanager.scoreTxt.gameObject.SetActive(false);
-        Time.timeScale = 0f;
-        introPanel.SetActive(true);
-        startButton.onClick.AddListener(StartMiniGame);
-        
+        if(!isFirstLoading)
+        {
+            StartMiniGameSkip();
+        }
+        else
+        {
+            isFirstLoading = false;
+
+            uimanager.UpdateScore(0);
+            uimanager.scoreTxt.gameObject.SetActive(false);
+            Time.timeScale = 0f;
+
+            introPanel.SetActive(true);
+            startButton.onClick.AddListener(StartMiniGame);
+        }
+
     }
+    
 
     public void StartMiniGame()
     {
         introPanel.SetActive(false);
         uimanager.scoreTxt.gameObject.SetActive(true);
         Time.timeScale = 1f;
-
+    }
+    public void StartMiniGameSkip()
+    {
+        introPanel.SetActive(false);
+        uimanager.scoreTxt.gameObject.SetActive(true);
+        Time.timeScale = 1f;
     }
     public void GameOver()
     {
@@ -70,6 +86,7 @@ public class GameManager : MonoBehaviour
     public void GoLobby()
     {
         SceneManager.LoadScene("MainScene");
+        isFirstLoading = true;
     }
 
     public void SaveHighScore()
