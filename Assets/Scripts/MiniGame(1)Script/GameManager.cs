@@ -44,11 +44,15 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        SaveHighScore();
+        PlayerPrefs.SetInt("LastScore",currentScore);
+        PlayerPrefs.Save();
         uimanager.SetRestart();
         uimanager.ResultScore();
         restartButton.onClick.AddListener(RestartGame);
         LobbyButton.onClick.AddListener(GoLobby);
-        
+
+
     }
 
     public void RestartGame()
@@ -67,4 +71,16 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+
+    public void SaveHighScore()
+    {
+        int bestScore = PlayerPrefs.GetInt("HighScore", 0);
+        if(currentScore > bestScore)
+        {
+            PlayerPrefs.SetInt("HighScore", currentScore);
+            PlayerPrefs.Save();   
+        }
+    }
+
+
 }

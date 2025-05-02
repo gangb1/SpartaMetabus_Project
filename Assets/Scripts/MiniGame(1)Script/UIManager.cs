@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreTxt;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private TextMeshProUGUI resultScore;
+    [SerializeField] private TextMeshProUGUI BestScoreTxt;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,7 @@ public class UIManager : MonoBehaviour
     public void ResultScore()
     {
         resultScore.text = scoreTxt.text;
+        int bestScore = PlayerPrefs.GetInt("HighScore", 0);
+        BestScoreTxt.text = bestScore.ToString();
     }
 }
