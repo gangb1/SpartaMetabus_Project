@@ -9,4 +9,9 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("MiniGameScene(1)");
     }
+    
+    public void goMiniGameScene2()
+    {
+        SceneManager.LoadScene("MiniGameScene(2)");
+    }
 }

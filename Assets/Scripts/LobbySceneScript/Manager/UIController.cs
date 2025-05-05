@@ -6,21 +6,51 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
-    public TMP_Text interactionText;
-    public GameObject interactionPanel;
+    [Header("default tooltip Panel")]
+    [SerializeField] private GameObject defaultPanel;
+    [SerializeField] private TextMeshProUGUI defualtText;
 
+    [Header("Button tooltip Panel")]
+    [SerializeField] private GameObject ScorePanel;
+    [SerializeField] private TextMeshProUGUI ScoreText;
 
-    public void ShowText(string message)
+    public static UIController instance { get; private set; }
+
+    private void Awake()
     {
-        interactionText.text = message;
-        interactionPanel.SetActive(true);
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void ShowText(string message, bool useScorePanel = false)
+    {
+        HideText();
+
+        if(useScorePanel )
+        {
+            ScorePanel.SetActive(true);
+            ScoreText.text = message;
+        }
+        else
+        {
+            defaultPanel.SetActive(true);
+            defualtText.text = message;
+        }
     }
 
     public void HideText()
     {
-        if (interactionText != null && interactionText.gameObject != null)
-        {
-            interactionPanel.SetActive(false);
-        }
+        defaultPanel.SetActive(false);
+        ScorePanel.SetActive(false);
+    }
+
+    public bool IsActive()
+    {
+        return defaultPanel.activeSelf || ScorePanel.activeSelf;
     }
 }
