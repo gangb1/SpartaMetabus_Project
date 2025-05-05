@@ -18,7 +18,8 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        Screen.SetResolution(1920, 1080, false);
+        if (instance == null)
         {
             instance = this;
         }
@@ -47,6 +48,8 @@ public class UIController : MonoBehaviour
     {
         defaultPanel.SetActive(false);
         ScorePanel.SetActive(false);
+        if (defaultPanel != null) defaultPanel.SetActive(false);
+        if (ScorePanel != null) ScorePanel.SetActive(false);
     }
 
     public bool IsActive()
