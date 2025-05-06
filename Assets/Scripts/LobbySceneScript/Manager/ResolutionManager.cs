@@ -5,22 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class ResolutionManager : MonoBehaviour
 {
+    private static ResolutionManager instance;
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode )
     {
-        
+        SetResolutionForCurrentScene(scene.name);
     }
 
-    void SetResolutionForCurrentScene()
+    void SetResolutionForCurrentScene(string sceneName)
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-
-        if (sceneName == "StartScene" || sceneName == "MainScene" || sceneName == "MiniGameScene(1)")
+        if (sceneName == "StartScene" || sceneName == "MainScene" || sceneName == "MiniGameScene(1)" || sceneName == "HiddenGameScene")
         {
             Screen.SetResolution(1280, 720, false);
         }
@@ -28,5 +35,11 @@ public class ResolutionManager : MonoBehaviour
         {
             Screen.SetResolution(720,1280,false);
         }
+        Debug.Log($"현재 해상도: {Screen.width} x {Screen.height}");
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;  
     }
 }

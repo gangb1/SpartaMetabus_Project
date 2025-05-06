@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HiddenHomeUI : HiddenBaseUI
 {
@@ -23,7 +24,7 @@ public class HiddenHomeUI : HiddenBaseUI
 
     public void OnClickExitButton()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainScene");
     }
 
     protected override HiddenUIState GetUIState()
