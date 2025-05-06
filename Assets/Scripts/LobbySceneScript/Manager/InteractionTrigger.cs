@@ -59,6 +59,7 @@ public class InteractionTrigger : MonoBehaviour
     {
             playerInRange = false;
             player = null;
+        if(ui != null)
         ui.HideText();
     }
 

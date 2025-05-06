@@ -23,10 +23,10 @@ public class ScoreUI : BaseUI
     {
         base.Init(uiManager);
 
-        scoreTxt = transform.Find("ScoreTxt").GetComponent<TextMeshProUGUI>();
-        comboTxt = transform.Find("ComboTxt").GetComponent <TextMeshProUGUI>();
-        bestScoreTxt = transform.Find("BestScoreTxt").GetComponent<TextMeshProUGUI>();
-        bestComboTxt = transform.Find("BestComboTxt").GetComponent<TextMeshProUGUI>();
+        scoreTxt = transform.Find("Image/ScoreTxt").GetComponent<TextMeshProUGUI>();
+        comboTxt = transform.Find("Image/ComboTxt").GetComponent <TextMeshProUGUI>();
+        bestScoreTxt = transform.Find("Image/BestScoreTxt").GetComponent<TextMeshProUGUI>();
+        bestComboTxt = transform.Find("Image/BestComboTxt").GetComponent<TextMeshProUGUI>();
 
         startBtn = transform.Find("StartBtn").GetComponent<Button>();
         exitBtn = transform.Find("ExitBtn").GetComponent<Button>();
