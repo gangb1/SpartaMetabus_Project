@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 
 
 public enum UIState
-{ 
+{
     Home,
     Game,
     Score,
@@ -15,11 +16,11 @@ public enum UIState
 
 public class UImanager : MonoBehaviour
 {
-   static UImanager instance;
+    static UImanager instance;
 
     public static UImanager Instance
     {
-        get { return instance; }        
+        get { return instance; }
     }
 
     UIState currentState = UIState.Home;
@@ -31,10 +32,9 @@ public class UImanager : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(1080, 1920, false);
         instance = this;            //싱글톤 인스턴스 할당
 
-        theStack =FindObjectOfType<TheStack>();
+        theStack = FindObjectOfType<TheStack>();
 
         // HomeUI, GameUI, ScroeUI 오브젝트를 계층에서 찾아서 연결하고 초기화
         homeUI = GetComponentInChildren<HomeUI>(true);
@@ -67,11 +67,7 @@ public class UImanager : MonoBehaviour
 
     public void OncClickExit()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        SceneManager.LoadScene("Mainscene");
     }
 
     public void UpdateScore()
