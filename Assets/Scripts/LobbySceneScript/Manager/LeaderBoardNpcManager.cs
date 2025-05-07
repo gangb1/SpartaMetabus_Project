@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NpcManager : MonoBehaviour
+public class LeaderBoardNpcManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI PlainBestScoreTxt;
+    //점수 텍스트를 표시하는 UI 텍스트 필드
+    [SerializeField] private TextMeshProUGUI PlainBestScoreTxt;         
     [SerializeField] private TextMeshProUGUI StackBestScoreTxt;
+    //점수 UI 전체를 감싸는 CANVAS
     [SerializeField] private Canvas canvas;
 
     protected AnimationHandler animationHandler;

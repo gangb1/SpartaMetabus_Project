@@ -8,12 +8,7 @@ public class HiddenNPCManager : MonoBehaviour
     [SerializeField] private Button yesButton;
     [SerializeField] private Button noButton;
     [SerializeField] private GameObject canvas;
-    Animator animator;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
     // Start is called before the first frame update
     void Start()
     {

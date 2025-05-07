@@ -8,7 +8,7 @@ public class NewBehaviourScript : BaseController
 
     protected override void Start()
     {
-        base.Start();                   //BaseController의 start() 호출(비어있지만 기본 구조 유지 차원에서 호출)
+        base.Start();                   //BaseController의 start() 호출(비어 있지만 상속 구조 유지 목적)
         cam = Camera.main;          //메인 카메라를 찾아서 변수에 저장
     }
 
@@ -18,20 +18,20 @@ public class NewBehaviourScript : BaseController
     {
         float horizontal = Input.GetAxisRaw("Horizontal");      //수평 방향 키 입력을 실시간으로 숫자로 가져온다.
         float vertical = Input.GetAxisRaw("Vertical");          //수직 방향 키 입력을 실시간으로 숫자로 가져온다.
-        movementDirection = new Vector2(horizontal, vertical).normalized;        //이동 방향 저장(normalized때문에 방향만 가져와짐)
+        movementDirection = new Vector2(horizontal, vertical).normalized;        //방향 벡터로 변환하여 이동 방향 저장(normalized때문에 방향만 가져와짐(크기 1로고정))
 
-        Vector2 mounsePosition = Input.mousePosition;               //마우스 위치를 픽셀 좌표로 줌
+        Vector2 mounsePosition = Input.mousePosition;               //마우스 위치를 픽셀 좌표로 가져옴
         Vector2 worldPos = cam.ScreenToWorldPoint(mounsePosition);       //픽셀 좌표를 게임 내 월드 좌표로 변환함
-        lookDirection = (worldPos - (Vector2)transform.position);       //마우스 바라보는 방향 계산
+        lookDirection = (worldPos - (Vector2)transform.position);       //캐릭터 위치 기준으로 마우스 바라보는 방향 계산
 
-        //너무 가까우면 무시
+        //마우스가 너무 가까우면 방향 설정 무시
         if (lookDirection.magnitude < .9f)              //manitude는 벡터의 길이(거리)
         {
             lookDirection = Vector2.zero;               // 방향 무시
         }
         else
         {
-            lookDirection = lookDirection.normalized;       //방향만 저장
+            lookDirection = lookDirection.normalized;       //방향 벡터를 정규화하여 저장(크기 제거)
         }
     }
 }
