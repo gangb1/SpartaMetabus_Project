@@ -3,7 +3,11 @@
 Unity를 활용한 메타버스 3D 게임 개발 개인 프로젝트입니다.  
 
 ---
+## 맵 디자인
+![image](https://github.com/user-attachments/assets/95bfd2bf-7538-4080-909c-65c2906a1a6e)
 
+
+---
 ## 📌 주요 기능
 
 - 다양한 게임 구성:   `MiniGameScene(1)`,`MiniGameScene(2)`, `HiddenGameScene` 등
