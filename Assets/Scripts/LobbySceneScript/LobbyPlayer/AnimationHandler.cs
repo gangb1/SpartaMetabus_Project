@@ -6,6 +6,8 @@ public class AnimationHandler : MonoBehaviour
 {
     private static readonly int IsMoving = Animator.StringToHash("IsMove");
     private static readonly int IsPush = Animator.StringToHash("IsPush");
+    private static readonly int IsActive = Animator.StringToHash("IsActive");
+
 
     protected Animator animator;
 
@@ -18,4 +20,15 @@ public class AnimationHandler : MonoBehaviour
     {
         animator.SetBool(IsMoving, obj.magnitude > .5f);
     }
+
+    public void Active()
+    {
+        animator.SetBool(IsActive, true);
+    }
+
+    public void DeActive()
+    {
+        animator.SetBool(IsActive, false);
+    }
+
 }
