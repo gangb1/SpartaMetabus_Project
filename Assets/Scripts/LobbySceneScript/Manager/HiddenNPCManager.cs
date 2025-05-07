@@ -9,6 +9,7 @@ public class HiddenNPCManager : MonoBehaviour
     [SerializeField] private Button noButton;
     [SerializeField] private GameObject canvas;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +30,10 @@ public class HiddenNPCManager : MonoBehaviour
     public void TalkNPC()
     {
         canvas.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        OnClickQuitButton();
     }
 }

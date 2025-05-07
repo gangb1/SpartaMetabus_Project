@@ -19,6 +19,7 @@ public class LeaderBoardNpcManager : MonoBehaviour
     //리더보드가 열려있는지 확인용 bool값
     private bool isActive;
 
+
     private void Awake()
     {
         //컴포넌트 참조
@@ -58,6 +59,10 @@ public class LeaderBoardNpcManager : MonoBehaviour
         isActive = false;                           //상태 불값 리셋
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CloseLeaderBoard();
+    }
 
 
 
