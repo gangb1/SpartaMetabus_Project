@@ -20,7 +20,7 @@ public class ResolutionManager : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode )
+    private void OnSceneLoaded(Scene scene, LoadSceneMode _ )
     {
         SetResolutionForCurrentScene(scene.name);
     }
