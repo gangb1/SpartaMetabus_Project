@@ -18,7 +18,6 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(1920, 1080, false);
         if (instance == null)
         {
             instance = this;

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    //미니게임 이동 메서드
     public void goMiniGameScene()
     {
         SceneManager.LoadScene("MiniGameScene(1)");

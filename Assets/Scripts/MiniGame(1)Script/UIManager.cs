@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreTxt;
+    public TextMeshProUGUI scoreTxt;               
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private TextMeshProUGUI resultScore;
     [SerializeField] private TextMeshProUGUI BestScoreTxt;
