@@ -19,19 +19,26 @@ public class NewBehaviourScript : BaseController
         float horizontal = Input.GetAxisRaw("Horizontal");      //수평 방향 키 입력을 실시간으로 숫자로 가져온다.
         float vertical = Input.GetAxisRaw("Vertical");          //수직 방향 키 입력을 실시간으로 숫자로 가져온다.
         movementDirection = new Vector2(horizontal, vertical).normalized;        //방향 벡터로 변환하여 이동 방향 저장(normalized때문에 방향만 가져와짐(크기 1로고정))
-
-        Vector2 mounsePosition = Input.mousePosition;               //마우스 위치를 픽셀 좌표로 가져옴
-        Vector2 worldPos = cam.ScreenToWorldPoint(mounsePosition);       //픽셀 좌표를 게임 내 월드 좌표로 변환함
-        lookDirection = (worldPos - (Vector2)transform.position);       //캐릭터 위치 기준으로 마우스 바라보는 방향 계산
-
-        //마우스가 너무 가까우면 방향 설정 무시
-        if (lookDirection.magnitude < .9f)              //manitude는 벡터의 길이(거리)
+        if(Mathf.Abs(horizontal) > 0.01f)           //수평 방향 키 입력이 들어왔을때
         {
-            lookDirection = Vector2.zero;               // 방향 무시
+            lookDirection = new Vector2(horizontal, 0).normalized;
         }
-        else
-        {
-            lookDirection = lookDirection.normalized;       //방향 벡터를 정규화하여 저장(크기 제거)
-        }
+
+
+
+        //마우스로 좌우를 바라볼때
+        //Vector2 mounsePosition = Input.mousePosition;               //마우스 위치를 픽셀 좌표로 가져옴
+        //Vector2 worldPos = cam.ScreenToWorldPoint(mounsePosition);       //픽셀 좌표를 게임 내 월드 좌표로 변환함
+        //lookDirection = (worldPos - (Vector2)transform.position);       //캐릭터 위치 기준으로 마우스 바라보는 방향 계산
+
+        ////마우스가 너무 가까우면 방향 설정 무시
+        //if (lookDirection.magnitude < .9f)              //manitude는 벡터의 길이(거리)
+        //{
+        //    lookDirection = Vector2.zero;               // 방향 무시
+        //}
+        //else
+        //{
+        //    lookDirection = lookDirection.normalized;       //방향 벡터를 정규화하여 저장(크기 제거)
+        //}
     }
 }
