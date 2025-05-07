@@ -21,7 +21,7 @@ public class NewBehaviourScript : BaseController
         movementDirection = new Vector2(horizontal, vertical).normalized;        //방향 벡터로 변환하여 이동 방향 저장(normalized때문에 방향만 가져와짐(크기 1로고정))
         if(Mathf.Abs(horizontal) > 0.01f)           //수평 방향 키 입력이 들어왔을때
         {
-            lookDirection = new Vector2(horizontal, 0).normalized;
+            lookDirection = new Vector2(horizontal, 0).normalized;      //좌우 방향에 따라 lookDirection 값을 설정
         }
 
 
