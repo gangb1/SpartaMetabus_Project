@@ -35164,7 +35164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ec8d8bc2b84742ad79bcde5247315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 1.5
+  interactDistance: 3
   message: Press [E]
   onInteract:
     m_PersistentCalls:
@@ -35232,7 +35232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ec8d8bc2b84742ad79bcde5247315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 1.5
+  interactDistance: 3
   message: Press [E]
   onInteract:
     m_PersistentCalls:
@@ -35820,7 +35820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ec8d8bc2b84742ad79bcde5247315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 1.5
+  interactDistance: 3
   message: Press [E]
   onInteract:
     m_PersistentCalls:
@@ -36778,7 +36778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ec8d8bc2b84742ad79bcde5247315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 1.5
+  interactDistance: 3
   message: Press [E]
   onInteract:
     m_PersistentCalls:
